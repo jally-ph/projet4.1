@@ -5,7 +5,7 @@ class Database
     //Nos constantes
     const DB_HOST = 'mysql:host=localhost;dbname=projet4.1;charset=utf8';
     const DB_USER = 'root';
-    const DB_PASS = 'root';
+    const DB_PASS = '';
 
     //Méthode de connexion à notre base de données
     public function getConnection()
@@ -14,8 +14,8 @@ class Database
         try{
             $connection = new PDO(self::DB_HOST, self::DB_USER, self::DB_PASS);
             $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            //On renvoie un message avec le mot-clé return
-            return 'Connexion OK';
+            //On renvoie la connexion
+            return $connection;
         }
             //On lève une erreur si la connexion échoue
         catch(Exception $errorConnection)
