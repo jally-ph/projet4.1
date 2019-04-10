@@ -1,6 +1,9 @@
 <?php
 
-class Article extends Database
+//Pour toutes les classes dans DAO
+namespace App\src\DAO;
+
+class ArticleDAO extends DAO
 {
     public function getArticles()
     {
@@ -15,4 +18,3 @@ class Article extends Database
     }
 }
 
-echo 'FR';

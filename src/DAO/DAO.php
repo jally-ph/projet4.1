@@ -1,6 +1,13 @@
 <?php
 
-abstract class Database
+//Pour toutes les classes dans DAO
+namespace App\src\DAO;
+
+//Uniquement pour la classe DAO
+use PDO;
+use Exception;
+
+abstract class DAO
 {
     //Nos constantes
     const DB_HOST = 'mysql:host=localhost;dbname=projet4.1;charset=utf8';
