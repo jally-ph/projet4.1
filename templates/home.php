@@ -2,6 +2,10 @@
 <p>En construction</p>
 <?= $this->session->show('add_article'); ?>
 <a href="../public/index.php?route=addArticle">Nouvel article</a>
+
+<!--articles supprimées-->
+<a href="../public/index.php?route=suppArticle">Voir les articles supprimées</a>
+
 <?php
 foreach ($articles as $article)
 {
