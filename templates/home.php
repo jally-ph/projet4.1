@@ -1,10 +1,10 @@
 <h1>Mon blog</h1>
 <p>En construction</p>
 <?= $this->session->show('add_article'); ?>
-<a href="../public/index.php?route=addArticle">Nouvel article</a>
+<p><a href="../public/index.php?route=addArticle">Nouvel article</a> </p>
 
 <!--articles supprimées-->
-<a href="../public/index.php?route=suppArticle">Voir les articles supprimées</a>
+<p><a href="../public/index.php?route=getArchive">Voir les articles supprimées</a> </p>
 
 <?php
 foreach ($articles as $article)
