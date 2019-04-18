@@ -1,36 +1,18 @@
+<h1>Mon blog</h1>
+<p>En construction</p>
+<?= $this->session->show('add_article'); ?>
+<a href="../public/index.php?route=addArticle">Nouvel article</a>
 <?php
-require '../composer.phar/vendor/autoload.php';
-
-use App\src\DAO\ArticleDAO;
-
-?>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="utf-8">
-    <title>Mon blog</title>
-</head>
-
-<body>
-<div>
-    <h1>Mon blog</h1>
-    <p>En construction</p>
-    <?php
-
-    while($article = $articles->fetch())
-    {
-        ?>
-        <div>
-            <h2><a href="../public/index.php?route=article&articleId=<?= htmlspecialchars($article->id);?>"><?= htmlspecialchars($article->title);?></a></h2>
-            <p><?= htmlspecialchars($article->content);?></p>
-            <p><?= htmlspecialchars($article->author);?></p>
-            <p>Créé le : <?= htmlspecialchars($article->createdAt);?></p>
-        </div>
-        <br>
-        <?php
-    }
-    $articles->closeCursor();
+foreach ($articles as $article)
+{
     ?>
-</div>
-</body>
-</html>
+    <div>
+        <h2><a href="../public/index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>"><?= htmlspecialchars($article->getTitle());?></a></h2>
+        <p><?= htmlspecialchars($article->getContent());?></p>
+        <p><?= htmlspecialchars($article->getAuthor());?></p>
+        <p>Créé le : <?= htmlspecialchars($article->getCreatedAt());?></p>
+    </div>
+    <br>
+    <?php
+}
+?>

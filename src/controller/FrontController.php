@@ -1,30 +1,24 @@
 <?php
 
 namespace App\src\controller;
-use App\src\DAO\ArticleDAO;
-use App\src\DAO\CommentDAO;
 
-class FrontController
+class FrontController extends Controller
 {
-    private $articleDAO;
-    private $commentDAO;
-
-    public function __construct()
-    {
-        $this->articleDAO = new ArticleDAO();
-        $this->commentDAO = new CommentDAO();
-    }
-
     public function home()
     {
         $articles = $this->articleDAO->getArticles();
-        require '../templates/home.php';
+        return $this->view->render('home', [
+            'articles' => $articles
+        ]);
     }
 
     public function article($articleId)
     {
-        $articles = $this->articleDAO->getArticle($articleId);
+        $article = $this->articleDAO->getArticle($articleId);
         $comments = $this->commentDAO->getCommentsFromArticle($articleId);
-        require '../templates/single.php';
+        return $this->view->render('single', [
+            'article' => $article,
+            'comments' => $comments
+        ]);
     }
 }
