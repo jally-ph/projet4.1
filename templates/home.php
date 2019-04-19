@@ -4,7 +4,7 @@
 <p><a href="../public/index.php?route=addArticle">Nouvel article</a> </p>
 
 <!--articles supprimées-->
-<p><a href="../public/index.php?route=getArchive">Voir les articles supprimées</a> </p>
+<p><a>Voir les articles supprimées</a> </p>
 
 <?php
 foreach ($articles as $article)
@@ -15,6 +15,7 @@ foreach ($articles as $article)
         <p><?= htmlspecialchars($article->getContent());?></p>
         <p><?= htmlspecialchars($article->getAuthor());?></p>
         <p>Créé le : <?= htmlspecialchars($article->getCreatedAt());?></p>
+        <p><a href="../public/index.php?route=articleId&deleteThis">Supprimer cet article</a></p>
     </div>
     <br>
     <?php
