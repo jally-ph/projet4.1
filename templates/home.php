@@ -1,10 +1,12 @@
+
+
 <h1>Mon blog</h1>
 <p>En construction</p>
 <?= $this->session->show('add_article'); ?>
+<?= $this->session->show('delete_article'); ?>
+<?= $this->session->show('delete_comments'); ?>
 <p><a href="../public/index.php?route=addArticle">Nouvel article</a> </p>
 
-<!--articles supprimées-->
-<p><a>Voir les articles supprimées</a> </p>
 
 <?php
 foreach ($articles as $article)
@@ -15,7 +17,7 @@ foreach ($articles as $article)
         <p><?= htmlspecialchars($article->getContent());?></p>
         <p><?= htmlspecialchars($article->getAuthor());?></p>
         <p>Créé le : <?= htmlspecialchars($article->getCreatedAt());?></p>
-        <p><a href="../public/index.php?route=articleId&deleteThis">Supprimer cet article</a></p>
+        <p><a href="../public/index.php?route=deleteArticle&articleId=<?= htmlspecialchars($article->getId());?>">Supprimer cet article</a></p>
     </div>
     <br>
     <?php
