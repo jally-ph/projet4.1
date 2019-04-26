@@ -38,7 +38,13 @@ class Router
                     $this->backController->deleteArticle($this->request->getGet()->get('articleId'));
                 }
 
+                /*if($route === 'formArticle'){
+                    $this->frontController->formArticle($this->request->getGet()->get('articleId'));
+                }*/
 
+                elseif ($route === 'modifyArticle') {
+                    $this->frontController->modifyArticle($this->request->getGet()->get('articleId'));
+                }
 
                 else{
                     $this->errorController->errorNotFound();

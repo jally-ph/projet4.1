@@ -5,6 +5,7 @@ namespace App\src\DAO;
 use App\config\Parameter;
 use App\src\model\Article;
 
+
 class ArticleDAO extends DAO
 {
     private function buildObject($row)
@@ -53,9 +54,44 @@ class ArticleDAO extends DAO
         $this->createQuery($sql, [$articleId]);
     }
 
-    public function deleteComments($articleId)
+
+    /*faire que l'art s'affiche sur une page dans le formulaire puis mettre update*/
+    public function modifyArticle($post)
     {
-        $sql = 'DELETE FROM comment WHERE article_id=?';
-        $this->createQuery($sql,[$articleId]);
+        $sql = 'UPDATE article SET title=?, content=?, author=? WHERE id=?';
+        $this->createQuery($sql, [$post->get('title'), $post->get('content'), $post->get('author'), $articleId]);
+
+        //var_dump();
+
+
+
+
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+    //puis on redirige les infos vers modifyArticle
+    public function modifyArticle($post)
+    {
+        $sql = 'UPDATE article SET title=?, content=?, author=? WHERE id=?';
+        $this->createQuery($sql, [$post->get('title'), $post->get('content'), $post->get('author'), $articleId]);
+        header("location: ../public/index.php");
+        $result->closeCursor();
+    }
+
+*/
+
+
 }

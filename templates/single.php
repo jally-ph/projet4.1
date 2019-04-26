@@ -6,6 +6,10 @@
     <p><?= htmlspecialchars($article->getContent());?></p>
     <p><?= htmlspecialchars($article->getAuthor());?></p>
     <p>Créé le : <?= htmlspecialchars($article->getCreatedAt());?></p>
+
+
+    <p><a href="../public/index.php?route=modifyArticle&articleId=<?= htmlspecialchars($article->getId());?>">Modifier l'article</a></p>
+
 </div>
 <br>
 <a href="../public/index.php">Retour à l'accueil</a>

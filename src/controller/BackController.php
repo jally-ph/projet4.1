@@ -18,18 +18,42 @@ class BackController extends Controller
         ]);
     }
 
-    public function deleteComments($articleId)
-    {
-        $this->articleDAO->deleteComments($articleId);
-    }
-
     public function deleteArticle($articleId)
     {
-        $this->deleteComments($articleId);
+        $this->commentDAO->deleteComments($articleId);
         $this->articleDAO->deleteArticle($articleId);
         $this->session->set('delete_article', 'L\'article a bien été supprimé');
         header('Location: ../public/index.php');
     }
 
+    /*public function modifyArticle(Parameter $post)
+    {
+        $this->articleDAO->modifyArticle($post);
+        //$this->session->set('modify_article', 'L\'article a bien été modifié');
+        //header('Location: ../public/index.php');
+        return $this->view->render('modify', [
+            'post' => $post
+            ]);
+
+    }*/
+
+
+
+
+
+
+
+
+    /*public function modifyArticle($post)
+    {
+        if ($post->get('submit')) {
+            $this->ArticleDAO->modifyArticle($post);
+            $this->session->set('modify_article', 'L\'article a bien été modifié');
+            header('Location: ../public/index.php');
+        }
+        return $this->view->render('modify_article', [
+            'post' => $post
+        ]);
+    }*/
 
 }

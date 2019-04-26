@@ -28,4 +28,10 @@ class CommentDAO extends DAO
         $result->closeCursor();
         return $comments;
     }
+
+    public function deleteComments($articleId)
+    {
+        $sql = 'DELETE FROM comment WHERE article_id=?';
+        $this->createQuery($sql,[$articleId]);
+    }
 }
