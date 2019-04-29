@@ -30,21 +30,19 @@ class FrontController extends Controller
         return $this->view->render('modify', [
             'article' => $article
         ]);
+
+        if($post->get('submit')) {
+            //$this->session->set('modify_article', 'L\'article a bien été modifié');
+            header('Location: ../public/index.php');
+        }
+
+
+
+
+
+
+
     }
 
 
-
-
-
-    /*public function formArticle(Parameter $post)
-    {
-        if($post->get('submit')) {
-            $this->ArticleDAO->formArticle($post);
-            $this->session->set('add_article', 'Le nouvel article a bien été ajouté');
-            header('Location: ../public/index.php');
-        }
-        return $this->view->render('add_article', [
-            'post' => $post
-        ]);
-    }*/
 }

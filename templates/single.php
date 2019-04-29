@@ -1,6 +1,9 @@
 <?php $this->title = "Article"; ?>
 <h1>Mon blog</h1>
-<p>En construction</p>
+<p>En construction</p><br>
+
+<?= $this->session->show('modify_article'); ?>
+
 <div>
     <h2><?= htmlspecialchars($article->getTitle());?></h2>
     <p><?= htmlspecialchars($article->getContent());?></p>

@@ -3,14 +3,10 @@
 <?= $this->session->show('add_article'); ?>
 <?= $this->session->show('delete_article'); ?>
 <?= $this->session->show('delete_comments'); ?>
-<?= $this->session->show('modify_article'); ?>
-<?php //créer une session avec message : "article modifié" ?>
+
 
 <p><a href="../public/index.php?route=addArticle">Nouvel article</a> </p>
 
-<p><a href="../public/index.php?route=modifyArticle&articleId">Test modif</a> </p>
-<?php
-//var_dump(modifyArticle());?>
 
 <?php
 foreach ($articles as $article)

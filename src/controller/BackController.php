@@ -26,17 +26,6 @@ class BackController extends Controller
         header('Location: ../public/index.php');
     }
 
-    /*public function modifyArticle(Parameter $post)
-    {
-        $this->articleDAO->modifyArticle($post);
-        //$this->session->set('modify_article', 'L\'article a bien été modifié');
-        //header('Location: ../public/index.php');
-        return $this->view->render('modify', [
-            'post' => $post
-            ]);
-
-    }*/
-
 
 
 
