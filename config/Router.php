@@ -39,7 +39,7 @@ class Router
                 }
 
                 elseif ($route === 'modifyArticle') {
-                    $this->frontController->modifyArticle($this->request->getGet()->get('articleId'));
+                    $this->backController->modifyArticle($this->request->getPost(), $this->request->getGet()->get('articleId'));
                 }
 
                 else{

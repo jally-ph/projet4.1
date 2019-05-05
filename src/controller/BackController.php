@@ -27,22 +27,25 @@ class BackController extends Controller
     }
 
 
-
-
-
-
-
-
-    /*public function modifyArticle($post)
+    public function modifyArticle(Parameter $post, $id)
     {
-        if ($post->get('submit')) {
-            $this->ArticleDAO->modifyArticle($post);
+        $article = $this->articleDAO->getArticle($id);
+
+        //var_dump($post);
+
+        if($post->get('submit')) {
+            $this->articleDAO->updateArticle($post, $id);
             $this->session->set('modify_article', 'L\'article a bien été modifié');
-            header('Location: ../public/index.php');
+            header('Location: ../public/index.php?route=article&articleId='.$id);
         }
-        return $this->view->render('modify_article', [
-            'post' => $post
+
+        return $this->view->render('modify', [
+            'article' => $article
         ]);
-    }*/
+
+    }
+
+
+
 
 }

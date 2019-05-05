@@ -24,25 +24,6 @@ class FrontController extends Controller
         ]);
     }
 
-    public function modifyArticle($articleId)
-    {
-        $article = $this->articleDAO->getArticle($articleId);
-        return $this->view->render('modify', [
-            'article' => $article
-        ]);
-
-        if($post->get('submit')) {
-            //$this->session->set('modify_article', 'L\'article a bien été modifié');
-            header('Location: ../public/index.php');
-        }
-
-
-
-
-
-
-
-    }
 
 
 }

@@ -55,43 +55,24 @@ class ArticleDAO extends DAO
     }
 
 
-    /*faire que l'art s'affiche sur une page dans le formulaire puis mettre update*/
-    public function modifyArticle($post)
+    public function updateArticle(Parameter $post, $id)
     {
 
-            $sql = 'UPDATE article SET title=:title, content=:content, author=:author WHERE id=?';
-            $this->createQuery($sql, [$post->get('title'), $post->get('content'), $post->get('author')]);
-            //$this->createQuery($sql, [':title'=>$title, ':content'=>setContent($content), ':author'=>setAuthor($author), $articleId]);
+        $sql = 'UPDATE article SET title=:title, content=:content, author=:author WHERE id=:id';
+            $this->createQuery($sql, [
+                'title'=>$post->get('title'),
+                'content'=>$post->get('content'),
+                'author'=>$post->get('author'),
+                'id'=>$id
+            ]);
 
 
-        //var_dump();
+
+        //var_dump($post);
 
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-    //puis on redirige les infos vers modifyArticle
-    public function modifyArticle($post)
-    {
-        $sql = 'UPDATE article SET title=?, content=?, author=? WHERE id=?';
-        $this->createQuery($sql, [$post->get('title'), $post->get('content'), $post->get('author'), $articleId]);
-        header("location: ../public/index.php");
-        $result->closeCursor();
-    }
-
-*/
 
 
 }
