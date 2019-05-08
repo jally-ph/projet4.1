@@ -42,6 +42,12 @@ class Router
                     $this->backController->modifyArticle($this->request->getPost(), $this->request->getGet()->get('articleId'));
                 }
 
+                //pour les commentaires
+
+                elseif ($route === 'addComment'){
+                    $this->backController->addComment($this->request->getPost(), $this->request->getGet()->get('articleId'));
+                }
+
                 else{
                     $this->errorController->errorNotFound();
                 }

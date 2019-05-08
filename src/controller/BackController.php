@@ -45,7 +45,27 @@ class BackController extends Controller
 
     }
 
+//pour les commentaires
 
+    public function addComment(Parameter $post, $id)
+    {
+        $article = $this->articleDAO->getArticle($id);
+        var_dump($post,$id);
+
+        if($post->get('submit')) {
+            //$this->articleDAO->getArticle($id);
+            $this->commentDAO->addComment($post, $id);
+            //$this->session->set('add_comment', 'Le nouveau commentaire a bien été ajouté');
+            //header('Location: ../public/index.php?route=article&articleId='.$id);
+            //header('Location: ../public/index.php');
+        }
+        return $this->view->render('add_comment', [
+            //'post' => $post,
+            'article'=> $article
+        ]);
+
+
+    }
 
 
 }

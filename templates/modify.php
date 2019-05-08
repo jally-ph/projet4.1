@@ -6,7 +6,7 @@
 
 
 <div>
-    <form method="POST" action="../public/index.php?route=modifyArticle">
+    <form method="POST" action="../public/index.php?route=modifyArticle&articleId=<?= $article->getId();?>">
         <label for="title">Titre</label><br>
         <input type="text" id="title" name="title" value="<?= htmlspecialchars($article->getTitle());?>"><br>
 
