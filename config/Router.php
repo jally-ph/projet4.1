@@ -48,6 +48,10 @@ class Router
                     $this->backController->addComment($this->request->getPost(), $this->request->getGet()->get('articleId'));
                 }
 
+                elseif ($route === 'suppComment'){
+                    $this->backController->suppComment($this->request->getGet()->get('commentId'));
+                }
+
                 else{
                     $this->errorController->errorNotFound();
                 }

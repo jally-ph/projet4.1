@@ -27,6 +27,8 @@
         <h4><?= htmlspecialchars($comment->getPseudo());?></h4>
         <p><?= htmlspecialchars($comment->getContent());?></p>
         <p>Posté le <?= htmlspecialchars($comment->getCreatedAt());?></p>
+        <a href="../public/index.php?route=suppComment&commentId=<?= htmlspecialchars($comment->getId());?>
+">Supprimer le commentaire</a>
         <!--<a href="../public/index.php?route=modifyComment&articleId=<?//ne pas oublier le "=" htmlspecialchars($comment->getId());?>">Modifier le commentaire</a>-->
         <?php
     }

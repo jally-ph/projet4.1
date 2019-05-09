@@ -1,3 +1,4 @@
+<?php $this->title = "Nouveau commentaire"; ?>
 <h1>Ajouter votre commentaire</h1>
 
 <div>
