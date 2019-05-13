@@ -30,6 +30,24 @@ class CommentDAO extends DAO
         return $comments;
     }
 
+    public function getComment($commentId)
+    {
+        $sql = 'SELECT id, pseudo, content, createdAt, article_id FROM comment WHERE id = ?';
+        $result = $this->createQuery($sql, [$commentId]);
+        $comment = $result->fetch();
+        $result->closeCursor();
+        return $this->buildObject($comment);
+    }
+
+    public function getArticleIdForComment($id)
+    {
+        $sql = 'SELECT article_id FROM comment WHERE id = ?';
+        $result = $this->createQuery($sql, [$id]);
+        $comment = $result->fetch();
+        $result->closeCursor();
+        return $comment;
+    }
+
     public function deleteComments($articleId)
     {
         $sql = 'DELETE FROM comment WHERE article_id=?';
@@ -53,5 +71,14 @@ class CommentDAO extends DAO
         $this->createQuery($sql,[$id]);
     }
 
+    public function modifyComment(Parameter $post, $commentId)
+    {
+        $sql = 'UPDATE comment SET pseudo=:pseudo, content=:content WHERE id=:id';
+        $this->createQuery($sql, [
+            'pseudo'=>$post->get('pseudo'),
+            'content'=>$post->get('content'),
+            'id'=>$commentId
+        ]);
+    }
 
 }

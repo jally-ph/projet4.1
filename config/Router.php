@@ -52,6 +52,10 @@ class Router
                     $this->backController->suppComment($this->request->getGet()->get('commentId'));
                 }
 
+                elseif ($route === 'modifyComment'){
+                    $this->backController->modifyComment($this->request->getPost(), $this->request->getGet()->get('commentId'));
+                }
+
                 else{
                     $this->errorController->errorNotFound();
                 }
