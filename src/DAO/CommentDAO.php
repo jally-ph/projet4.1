@@ -71,13 +71,13 @@ class CommentDAO extends DAO
         $this->createQuery($sql,[$id]);
     }
 
-    public function modifyComment(Parameter $post, $commentId)
+    public function modifyComment(Parameter $post, $id)
     {
         $sql = 'UPDATE comment SET pseudo=:pseudo, content=:content WHERE id=:id';
         $this->createQuery($sql, [
             'pseudo'=>$post->get('pseudo'),
             'content'=>$post->get('content'),
-            'id'=>$commentId
+            'id'=>$id
         ]);
     }
 

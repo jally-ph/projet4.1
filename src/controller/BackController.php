@@ -69,15 +69,14 @@ class BackController extends Controller
         header('Location: ../public/index.php?route=article&articleId='.$article_id[0]);
     }
 
-    public function modifyComment(Parameter $post, $commentId)
+    public function modifyComment(Parameter $post, $id)
     {
         //récupérer le commentaire
-        $comment = $this->commentDAO->getComment($commentId);
+        $comment = $this->commentDAO->getComment($id);
 
 
         if($post->get('submit')) {
-            $this->commentDAO->modifyComment($post, $commentId);
-            $id=$commentId;
+            $this->commentDAO->modifyComment($post, $id);
             $article_id = $this->commentDAO->getArticleIdForComment($id);
             header('Location: ../public/index.php?route=article&articleId='.$article_id[0]);
         }
