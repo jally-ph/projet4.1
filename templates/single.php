@@ -6,9 +6,9 @@
 
 <div>
     <h2><?= htmlspecialchars($article->getTitle());?></h2>
-    <p><?= htmlspecialchars($article->getContent());?></p>
-    <p><?= htmlspecialchars($article->getAuthor());?></p>
+    <p>par <?= htmlspecialchars($article->getAuthor());?></p>
     <p>Créé le : <?= htmlspecialchars($article->getCreatedAt());?></p>
+    <p><?= $article->getContent();?></p>
 
 
     <p><a href="../public/index.php?route=modifyArticle&articleId=<?= htmlspecialchars($article->getId());?>">Modifier l'article</a></p>
@@ -25,12 +25,14 @@
     {
         ?>
         <h4><?= htmlspecialchars($comment->getPseudo());?></h4>
-        <p><?= htmlspecialchars($comment->getContent());?></p>
+        <p><?= $comment->getContent();?></p>
         <p>Posté le <?= htmlspecialchars($comment->getCreatedAt());?></p>
         <a href="../public/index.php?route=suppComment&commentId=<?= htmlspecialchars($comment->getId());?>
 ">Supprimer le commentaire</a>
         <br><br>
         <a href="../public/index.php?route=modifyComment&commentId=<?=htmlspecialchars($comment->getId());?>">Modifier le commentaire</a>
+
+        <br><br>
         <?php
     }
     ?>

@@ -56,6 +56,16 @@ class Router
                     $this->backController->modifyComment($this->request->getPost(), $this->request->getGet()->get('commentId'));
                 }
 
+                //pour les utilisateurs
+
+                elseif ($route === 'inscriptionUser'){
+                    $this->backController->inscriptionUser($this->request->getPost());
+                }
+
+                elseif ($route === 'connexionUser'){
+                    $this->backController->connexionUser($this->request->getPost(), $this->request->getGet()->get('userId'));
+                }
+
                 else{
                     $this->errorController->errorNotFound();
                 }

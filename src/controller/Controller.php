@@ -5,6 +5,7 @@ namespace App\src\controller;
 use App\config\Request;
 use App\src\DAO\ArticleDAO;
 use App\src\DAO\CommentDAO;
+use App\src\DAO\UserDAO;
 use App\src\model\View;
 
 abstract class Controller
@@ -16,6 +17,7 @@ abstract class Controller
     protected $get;
     protected $post;
     protected $session;
+    protected $userDAO;
 
     public function __construct()
     {
@@ -26,5 +28,6 @@ abstract class Controller
         $this->get = $this->request->getGet();
         $this->post = $this->request->getPost();
         $this->session = $this->request->getSession();
+        $this->userDAO = new UserDAO();
     }
 }

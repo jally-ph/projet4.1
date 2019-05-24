@@ -74,7 +74,6 @@ class BackController extends Controller
         //récupérer le commentaire
         $comment = $this->commentDAO->getComment($id);
 
-
         if($post->get('submit')) {
             $this->commentDAO->modifyComment($post, $id);
             $article_id = $this->commentDAO->getArticleIdForComment($id);
@@ -86,5 +85,39 @@ class BackController extends Controller
         ]);
     }
 
+
+    //pour les utilisateurs
+
+    public function inscriptionUser(Parameter $post)
+    {
+
+        if($post->get('submit')) {
+            var_dump($post);
+            $this->userDAO->inscriptionUser($post);
+            $this->session->set('inscriptionNewUser', 'Bienvenue ! Vous avez le statut de Nouveau Membre.');
+            header('Location: ../public/index.php');
+        }
+
+        return $this->view->render('inscription', [
+            'post' => $post
+        ]);
+    }
+
+
+    public function connexionUser(Parameter $post)
+    {
+
+        if($post->get('submit')) {
+
+            $this->userDAO->connexionUser($post);
+            $this->session->set('connexionUser', 'Vous êtes bien connecté à votre session');
+            header('Location: ../public/index.php');
+        }
+
+
+        return $this->view->render('connexion', [
+            'post' => $post
+        ]);
+    }
 
 }
