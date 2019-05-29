@@ -18,6 +18,11 @@ class User
     private $pseudo;
 
     /**
+     * @var string
+     */
+    private $password;
+
+    /**
      * @var \DateTime
      */
     private $createdAt;
@@ -52,6 +57,22 @@ class User
     public function setPseudo($pseudo)
     {
         $this->pseudo = $pseudo;
+    }
+
+    /**
+     * @return Password
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /*
+     * @param string password
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
     }
 
     /**

@@ -26,53 +26,31 @@ class UserDAO extends DAO
 
     }
 
-    public function connexionUser(Parameter $post)
+    public function connexionUser($post)
     {
-        if (isset($post))
-        {
-            $pseudo = $post->get('pseudo');
-            $pass = $post->get('password');
 
-            if (isset($pseudo) && isset($pass))
-            {
-                $sql = 'SELECT id, password FROM user WHERE pseudo= ?';
-                $result = $this->createQuery($sql, [$pseudo]);
-                $user = $result->fetch();
-                $result->closeCursor();
-                return $user;
+        $pseudo = $post->get('pseudo');
+        $pass = $post->get('password');
 
-                $isPasswordCorrect = password_verify($pass, $user['password']);
-
-                if(!$user)
-                {
-                    echo 'Pseudo sans correspondance. Vous vous êtes trompés de pseudo ?';
-                }
-
-                else
-                {
-                    if($isPasswordCorrect){
-                        session_start();
-                        $_SESSION['id'] = $user['id'];
-                        $_SESSION['pseudo'] = $pseudo;
-                        echo 'Vous êtes bien connecté...mais votre lien vers la page d\'accueil ne fonctionne visiblement pas';
-                    }
-
-                    else{
-                            echo 'Password incorrect ou pseudo sans correspondance.';
-                    }
-
-                }
-            }
-
-
-        }
-
-
-
-        /*$sql = 'SELECT pseudo, password FROM user WHERE id = ?';
-        $result = $this->createQuery($sql, [$id]);
+        $sql = 'SELECT id, pseudo, password FROM user WHERE pseudo= ?';
+        $result = $this->createQuery($sql, [$pseudo]);
         $user = $result->fetch();
         $result->closeCursor();
-        return $user;*/
+
+
+        $isPasswordCorrect = password_verify($pass, $user['password']);
+        //var_dump($isPasswordCorrect);
+
+        return [
+            'user'=> $user,
+            'isPasswordCorrect' => $isPasswordCorrect
+            ];
+
+    }
+
+    public function suppUser($id)
+    {
+        $sql = 'DELETE FROM user WHERE id=?';
+        $this->createQuery($sql,[$id]);
     }
 }

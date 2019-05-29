@@ -104,14 +104,55 @@ class BackController extends Controller
     }
 
 
-    public function connexionUser(Parameter $post)
+    public function connexionUser($post)
     {
 
         if($post->get('submit')) {
 
-            $this->userDAO->connexionUser($post);
-            $this->session->set('connexionUser', 'Vous êtes bien connecté à votre session');
-            header('Location: ../public/index.php');
+            $result = $this->userDAO->connexionUser($post);
+
+            if(!$result['user'])
+            {
+                $this->session->set('incorrectPassword', 'Password incorrect ou pseudo sans correspondance');
+                header('Location: ../public/index.php');
+            }
+
+            else
+            {
+                if($result['isPasswordCorrect']){
+                    $this->session->set('id', $result['user']['id']);
+                    $this->session->set('pseudo', $post->get('pseudo'));
+                    $this->session->set('successfulConnexion', 'Bienvenue !');
+
+                    //Tools only for the admin
+                    if ($_SESSION['pseudo']=='admin'){
+
+                        $this->session->set('newArticle', '<p><a href="../public/index.php?route=addArticle">Nouvel article</a></p>');
+                        $this->session->set('suppArticle', '<p><a href="../public/index.php?route=deleteArticle&articleId=<?= htmlspecialchars($article->getId());?>">Supprimer cet article</a></p>');
+                        $this->session->set('modifyArticle', '<p><a href="../public/index.php?route=modifyArticle&articleId=<?= htmlspecialchars($article->getId());?>">Modifier l\'article</a></p>');
+                        $this->session->set('suppComment', '<p><a href="../public/index.php?route=suppComment&commentId=<?= htmlspecialchars($comment->getId());?>
+">Supprimer le commentaire</a></p>');
+                        $this->session->set('modifyComment', '<a href="../public/index.php?route=modifyComment&commentId=<?=htmlspecialchars($comment->getId());?>">Modifier le commentaire</a>');
+
+                        header('Location: ../public/index.php');
+                    }
+                    //Remove admin'Tools for not appear for others users
+                    else{
+                        $this->session->remove('newArticle');
+                        $this->session->remove('suppArticle');
+                        $this->session->remove('modifyArticle');
+                        $this->session->remove('suppComment');
+                        $this->session->remove('modifyComment');
+                        header('Location: ../public/index.php');
+                    }
+                    header('Location: ../public/index.php');
+                }
+
+                else{
+                    $this->session->get('incorrectPassword');
+                    header('Location: ../public/index.php');
+                }
+            }
         }
 
 
@@ -119,5 +160,25 @@ class BackController extends Controller
             'post' => $post
         ]);
     }
+
+
+    public function Deconnexion()
+    {
+        $this->session->stop();
+        header('Location: ../public/index.php');
+    }
+
+    public function removeUser()
+    {
+        //récup id
+        $id = $this->session->get('id');
+
+        //supp from the user id
+        $this->userDAO->suppUser($id);
+
+        header('Location: ../public/index.php');
+
+    }
+
 
 }

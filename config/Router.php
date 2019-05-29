@@ -63,8 +63,17 @@ class Router
                 }
 
                 elseif ($route === 'connexionUser'){
-                    $this->backController->connexionUser($this->request->getPost(), $this->request->getGet()->get('userId'));
+                    $this->backController->connexionUser($this->request->getPost());
                 }
+
+                elseif ($route === 'Deconnexion'){
+                    $this->backController->Deconnexion($this->request->getSession());
+                }
+
+                elseif ($route === 'removeUser'){
+                    $this->backController->removeUser($this->request->getSession(), $this->request->getGet()->get('userId'));
+                }
+
 
                 else{
                     $this->errorController->errorNotFound();
