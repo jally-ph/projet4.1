@@ -24,6 +24,19 @@ class FrontController extends Controller
         ]);
     }
 
+    public function reduireChaineCar($chaine, $nb_car, $delim='...') {
+        $chaine= $this->articleDAO->getArticle();
+        $length = $nb_car;
+        if($nb_car<strlen($chaine)){
+            while (($chaine{$length} != " ") && ($length > 0)) {
+                $length--;
+            }
+            if ($length == 0) {return substr($chaine, 0, $nb_car) . $delim;}
+            else {return substr($chaine, 0, $length) . $delim;}
+        }
+        else {
+            return $chaine;}
+    }
 
 
 }

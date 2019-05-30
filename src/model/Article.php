@@ -19,6 +19,9 @@ class Article
      */
     private $content;
 
+    public $chain;
+
+
     /**
      * @var string
      */
@@ -67,6 +70,13 @@ class Article
     public function getContent()
     {
         return $this->content;
+    }
+
+    public function getExtract()
+    {
+        $chain = $this->getContent();
+        return substr($chain, 0, 60) . "...";
+
     }
 
     /**

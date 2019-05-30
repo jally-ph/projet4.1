@@ -12,11 +12,14 @@
 <?= $this->session->show('connexionUser'); ?>
 <?= $this->session->show('successfulConnexion'); ?>
 <?= $this->session->show('incorrectPassword'); ?>
+<?= $this->session->show('incorrectPassword2'); ?>
+<?= $this->session->show('suppUser'); ?>
 
 
-<?= $this->session->get('newArticle'); ?>
 
-
+<?php if ($this->session->get('pseudo')=='admin'){ ?>
+    <a href="../public/index.php?route=addArticle">Nouvel article</a>
+<?php } ?>
 <!--<p><a href="../public/index.php?route=addArticle">Nouvel article</a> </p>-->
 
 <p><a href="../public/index.php?route=inscriptionUser">S'inscrire</a> </p>
@@ -32,9 +35,15 @@ foreach ($articles as $article)
         <h2><a href="../public/index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>"><?= htmlspecialchars($article->getTitle());?></a></h2>
         <p>par <?= htmlspecialchars($article->getAuthor());?></p>
         <p>Créé le : <?= htmlspecialchars($article->getCreatedAt());?></p>
-        <p><?= $article->getContent();?></p
+        <p><?= strip_tags($article->getExtract());?></p
 
-        <?= $this->session->get('suppArticle'); ?>
+
+        <?php if ($this->session->get('pseudo')=='admin'){ ?>
+            <a></a>
+            <a href="../public/index.php?route=deleteArticle&articleId=<?= htmlspecialchars($article->getId());?>">
+                Supprimer l'article
+            </a>
+        <?php } ?>
 
     </div>
     <br>

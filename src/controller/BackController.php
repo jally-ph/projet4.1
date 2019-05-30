@@ -92,10 +92,21 @@ class BackController extends Controller
     {
 
         if($post->get('submit')) {
-            var_dump($post);
-            $this->userDAO->inscriptionUser($post);
-            $this->session->set('inscriptionNewUser', 'Bienvenue ! Vous avez le statut de Nouveau Membre.');
-            header('Location: ../public/index.php');
+            //var_dump($post);
+
+            //vérifier que pseudo et pass n'existe pas déjà dans la bdd avant d'insérer
+            $verify = $this->userDAO->verifyPseudo($post);
+            //var_dump($verify);
+
+            if(!$verify) {
+                $this->userDAO->inscriptionUser($post);
+                $this->session->set('inscriptionNewUser', 'Bienvenue ! Vous avez le statut de Nouveau Membre. 
+            Connectez-vous à votre compte.');
+                header('Location: ../public/index.php');
+            }
+            else {
+             $this->session->set('verifyPseudo', 'Ce pseudo est déjà pris');
+            }
         }
 
         return $this->view->render('inscription', [
@@ -104,7 +115,18 @@ class BackController extends Controller
     }
 
 
-    public function connexionUser($post)
+
+    public function removeSessionIdPseudo()
+    {
+        $this->session->get('id');
+        $this->session->get('pseudo');
+        $this->session->remove('id');
+        $this->session->remove('pseudo');
+
+    }
+
+
+    public function connexionUser(Parameter $post)
     {
 
         if($post->get('submit')) {
@@ -113,7 +135,17 @@ class BackController extends Controller
 
             if(!$result['user'])
             {
-                $this->session->set('incorrectPassword', 'Password incorrect ou pseudo sans correspondance');
+
+                $this->session->set('incorrectPassword', 'Password ou pseudo incorrect');
+                $this->removeSessionIdPseudo();
+
+                header('Location: ../public/index.php');
+            }
+            elseif(!$result['isPasswordCorrect']){
+
+                $this->session->set('incorrectPassword2', 'Password incorrect');
+                $this->removeSessionIdPseudo();
+
                 header('Location: ../public/index.php');
             }
 
@@ -121,36 +153,21 @@ class BackController extends Controller
             {
                 if($result['isPasswordCorrect']){
                     $this->session->set('id', $result['user']['id']);
-                    $this->session->set('pseudo', $post->get('pseudo'));
+                    $this->session->set('pseudo', $result['user']['pseudo']);
                     $this->session->set('successfulConnexion', 'Bienvenue !');
 
-                    //Tools only for the admin
-                    if ($_SESSION['pseudo']=='admin'){
 
-                        $this->session->set('newArticle', '<p><a href="../public/index.php?route=addArticle">Nouvel article</a></p>');
-                        $this->session->set('suppArticle', '<p><a href="../public/index.php?route=deleteArticle&articleId=<?= htmlspecialchars($article->getId());?>">Supprimer cet article</a></p>');
-                        $this->session->set('modifyArticle', '<p><a href="../public/index.php?route=modifyArticle&articleId=<?= htmlspecialchars($article->getId());?>">Modifier l\'article</a></p>');
-                        $this->session->set('suppComment', '<p><a href="../public/index.php?route=suppComment&commentId=<?= htmlspecialchars($comment->getId());?>
-">Supprimer le commentaire</a></p>');
-                        $this->session->set('modifyComment', '<a href="../public/index.php?route=modifyComment&commentId=<?=htmlspecialchars($comment->getId());?>">Modifier le commentaire</a>');
 
-                        header('Location: ../public/index.php');
-                    }
-                    //Remove admin'Tools for not appear for others users
-                    else{
-                        $this->session->remove('newArticle');
-                        $this->session->remove('suppArticle');
-                        $this->session->remove('modifyArticle');
-                        $this->session->remove('suppComment');
-                        $this->session->remove('modifyComment');
-                        header('Location: ../public/index.php');
-                    }
                     header('Location: ../public/index.php');
                 }
 
                 else{
+
                     $this->session->get('incorrectPassword');
+                    $this->removeSessionIdPseudo();
+
                     header('Location: ../public/index.php');
+
                 }
             }
         }
@@ -176,6 +193,8 @@ class BackController extends Controller
         //supp from the user id
         $this->userDAO->suppUser($id);
 
+        $this->removeSessionIdPseudo();
+        $this->session->set('suppUser', 'Votre compte a bien été supprimé.');
         header('Location: ../public/index.php');
 
     }

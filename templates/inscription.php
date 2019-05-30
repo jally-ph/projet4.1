@@ -1,4 +1,5 @@
 <a href="../public/index.php">Retour à l'accueil</a>
+<?= $this->session->show('verifyPseudo'); ?>
 
 <form method="post" action="../public/index.php?route=inscriptionUser">
     <div class="form-group row">

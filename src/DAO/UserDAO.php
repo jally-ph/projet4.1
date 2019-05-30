@@ -26,7 +26,27 @@ class UserDAO extends DAO
 
     }
 
-    public function connexionUser($post)
+    public function verifyPseudo(Parameter $post)
+    {
+        $pseudo = $post->get('pseudo');
+
+        $sql='SELECT pseudo FROM user WHERE pseudo= ?';
+        $result = $this->createQuery($sql, [$pseudo]);
+        $verify = $result->fetch();
+        $result->closeCursor();
+
+        if ($verify){
+            return [
+                'verify' => $verify
+            ];
+        }
+
+
+
+    }
+
+
+    public function connexionUser(Parameter $post)
     {
 
         $pseudo = $post->get('pseudo');
