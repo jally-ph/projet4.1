@@ -13,12 +13,13 @@
 <?= $this->session->show('successfulConnexion'); ?>
 <?= $this->session->show('incorrectPassword'); ?>
 <?= $this->session->show('incorrectPassword2'); ?>
+<?= $this->session->show('flag_comment'); ?>
 <?= $this->session->show('suppUser'); ?>
 
 
 
 <?php if ($this->session->get('pseudo')=='admin'){ ?>
-    <a href="../public/index.php?route=addArticle">Nouvel article</a>
+    <p><a href="../public/index.php?route=addArticle">Nouvel article</a></p>
 <?php } ?>
 <!--<p><a href="../public/index.php?route=addArticle">Nouvel article</a> </p>-->
 
@@ -36,6 +37,7 @@ foreach ($articles as $article)
         <p>par <?= htmlspecialchars($article->getAuthor());?></p>
         <p>Créé le : <?= htmlspecialchars($article->getCreatedAt());?></p>
         <p><?= strip_tags($article->getExtract());?></p
+
 
 
         <?php if ($this->session->get('pseudo')=='admin'){ ?>

@@ -56,6 +56,12 @@ class Router
                     $this->backController->modifyComment($this->request->getPost(), $this->request->getGet()->get('commentId'));
                 }
 
+                elseif($route === 'flagComment'){
+                    $this->frontController->flagComment($this->request->getGet()->get('commentId'));
+                }
+
+
+
                 //pour les utilisateurs
 
                 elseif ($route === 'inscriptionUser'){

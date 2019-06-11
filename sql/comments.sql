@@ -26,3 +26,6 @@ ALTER TABLE `comment`
 
 ALTER TABLE `comment`
   ADD CONSTRAINT `fk_article_id` FOREIGN KEY (`article_id`) REFERENCES `article` (`id`);
+
+ALTER TABLE `comment`
+    ADD `flag` BOOLEAN NOT NULL AFTER `createdAt`;

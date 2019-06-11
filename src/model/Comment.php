@@ -20,6 +20,12 @@ class Comment
     private $content;
 
     /**
+     * @var bool
+     */
+    private $flag;
+
+
+    /**
      * @var \DateTime
      */
     private $createdAt;
@@ -70,6 +76,22 @@ class Comment
     public function setContent($content)
     {
         $this->content = $content;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isFlag()
+    {
+        return $this->flag;
+    }
+
+    /**
+     * @param bool $flag
+     */
+    public function setFlag($flag)
+    {
+        $this->flag = $flag;
     }
 
     /**

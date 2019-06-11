@@ -1,0 +1,28 @@
+/* ***************************************
+                 SOMMAIRE
+**************************************** */
+/* background */
+/* header nav */
+
+
+
+/* background */
+body{
+    /*background-image: url('../img/snow-titre.jpg') !important;*/
+    background: fixed;
+    background-size: cover;
+    position: relative;
+    /*empecher défilement overflow-y: hidden; */
+}
+
+#content{
+    background-color: #ffffff40;
+    width : 100%;
+}
+
+
+/* header nav */
+.bg-lighty {
+    background-color: #ffffff52!important;
+    border-bottom: 1px solid #fefefe80;
+}

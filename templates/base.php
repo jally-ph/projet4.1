@@ -5,8 +5,11 @@
     <title><?= $title ?></title>
 </head>
 <body>
-<div id="content">
-    <?= $content ?>
-</div>
+
+    <div id="content">
+        <?php require_once ('navs/header.php'); ?>
+        <?= $content ?>
+    </div>
+
 </body>
 </html>
