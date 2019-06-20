@@ -88,10 +88,15 @@ class BackController extends Controller
 
     public function suppComment($id)
     {
+
         if(!$this->checkAdmin()){
 
+                //$id = $this->commentDAO->getCommentId($id);
+
                 $article_id = $this->commentDAO->getArticleIdForComment($id);
+
                 $this->commentDAO->deleteComment($id);
+
                 header('Location: ../public/index.php?route=article&articleId='.$article_id[0]);
 
 
@@ -233,5 +238,20 @@ class BackController extends Controller
 
     }
 
+
+    public function adminPage()
+    {
+        if(!$this->checkAdmin()){
+
+            //$comment = $this->commentDAO->getComment($id);
+
+            $articles = $this->articleDAO->getArticles();
+
+            return $this->view->render('adminPage', [
+                'articles'=> $articles
+                //'comment'=> $comment
+            ]);
+        }
+    }
 
 }

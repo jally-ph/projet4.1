@@ -33,7 +33,7 @@ class CommentDAO extends DAO
 
     public function getComment($commentId)
     {
-        $sql = 'SELECT id, pseudo, content, createdAt, article_id FROM comment WHERE id = ?';
+        $sql = 'SELECT id, pseudo, content, createdAt, flag, article_id FROM comment WHERE id = ?';
         $result = $this->createQuery($sql, [$commentId]);
         $comment = $result->fetch();
         $result->closeCursor();
@@ -49,22 +49,19 @@ class CommentDAO extends DAO
         return $comment;
     }
 
-    public function deleteComments($articleId)
-    {
-        $sql = 'DELETE FROM comment WHERE article_id=?';
-        $this->createQuery($sql,[$articleId]);
-    }
+
 
     ///
     ///
     ///
     public function addComment(Parameter $post, $id)
     {
-        $sql = 'INSERT INTO comment (pseudo, content, flag, createdAt, article_id) VALUES (?, ?, NOW(), ?)';
+        $sql = 'INSERT INTO comment (pseudo, content, createdAt, flag, article_id) VALUES (?, ?, NOW(), ?, ?)';
         $this->createQuery($sql, [$post->get('pseudo'), $post->get('content'), 0, $id
         ]);
 
     }
+
 
     public function deleteComment($id)
     {
@@ -86,6 +83,25 @@ class CommentDAO extends DAO
     {
         $sql = 'UPDATE comment SET flag = ? WHERE id = ?';
         $this->createQuery($sql, [1, $commentId]);
+    }
+
+    public function flagComments($articleId)
+    {
+        $sql = 'SELECT * FROM comment WHERE flag = 1 ORDER BY createdAt DESC';
+        $result = $this->createQuery($sql, [$articleId]);
+        $comments = [];
+        foreach ($result as $row) {
+            $commentId = $row['id'];
+            $comments[$commentId] = $this->buildObject($row);
+        }
+        $result->closeCursor();
+        return $comments;
+    }
+
+    public function deflag($commentId)
+    {
+        $sql = 'UPDATE comment SET flag = ? WHERE id = ?';
+        $this->createQuery($sql, [0, $commentId]);
     }
 
 }

@@ -73,4 +73,17 @@ class UserDAO extends DAO
         $sql = 'DELETE FROM user WHERE id=?';
         $this->createQuery($sql,[$id]);
     }
+
+    public function allUsers($userId)
+    {
+        $sql = 'SELECT * FROM user ORDER BY createdAt DESC';
+        $result = $this->createQuery($sql, [$userId]);
+        $users = [];
+        foreach ($result as $row) {
+            $userId = $row['id'];
+            $users[$userId] = $this->buildObject($row);
+        }
+        $result->closeCursor();
+        return $users;
+    }
 }

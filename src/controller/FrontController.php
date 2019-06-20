@@ -45,5 +45,33 @@ class FrontController extends Controller
         header('Location: ../public/index.php');
     }
 
+    public function flagComments($articleId)
+    {
+        $comments = $this->commentDAO->flagComments($articleId);
+        return $this->view->render('commentSignal', [
+            'comments' => $comments
+        ]);
+    }
+
+    public function deflag($commentId)
+    {
+        $this->commentDAO->deflag($commentId);
+        $this->session->set('deflag', 'Le commentaire n\'est plus signalé');
+        header('Location: ../public/index.php?route=flagComments');
+    }
+
+    public function allUsers($userId)
+    {
+        $users = $this->userDAO->allUsers($userId);
+        return $this->view->render('listUsers', [
+            'users' => $users
+        ]);
+    }
+
+    public function deleteUser($id)
+    {
+        $this->userDAO->suppUser($id);
+        header('Location: ../public/index.php?route=allUsers');
+    }
 
 }

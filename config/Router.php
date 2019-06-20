@@ -60,6 +60,22 @@ class Router
                     $this->frontController->flagComment($this->request->getGet()->get('commentId'));
                 }
 
+                elseif ($route === 'flagComments'){
+                    $this->frontController->flagComments($this->request->getGet()->get('commentId'));
+                }
+
+                elseif ($route === 'deflag'){
+                    $this->frontController->deflag($this->request->getGet()->get('commentId'));
+                }
+
+                elseif ($route === 'allUsers'){
+                    $this->frontController->allUsers($this->request->getGet()->get('userId'));
+                }
+
+                elseif ($route === 'deleteUser'){
+                    $this->frontController->deleteUser($this->request->getGet()->get('userId'));
+                }
+
 
 
                 //pour les utilisateurs
@@ -78,6 +94,12 @@ class Router
 
                 elseif ($route === 'removeUser'){
                     $this->backController->removeUser($this->request->getSession(), $this->request->getGet()->get('userId'));
+                }
+
+                //adminPage
+
+                elseif ($route === 'adminPage'){
+                    $this->backController->adminPage();
                 }
 
 
