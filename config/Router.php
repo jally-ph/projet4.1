@@ -68,13 +68,6 @@ class Router
                     $this->frontController->deflag($this->request->getGet()->get('commentId'));
                 }
 
-                elseif ($route === 'allUsers'){
-                    $this->frontController->allUsers($this->request->getGet()->get('userId'));
-                }
-
-                elseif ($route === 'deleteUser'){
-                    $this->frontController->deleteUser($this->request->getGet()->get('userId'));
-                }
 
 
 
@@ -96,13 +89,30 @@ class Router
                     $this->backController->removeUser($this->request->getSession(), $this->request->getGet()->get('userId'));
                 }
 
-                //adminPage
+                elseif ($route === 'allUsers'){
+                    $this->frontController->allUsers($this->request->getGet()->get('userId'));
+                }
+
+                elseif ($route === 'deleteUser'){
+                    $this->frontController->deleteUser($this->request->getGet()->get('userId'));
+                }
+
+
+                //page d'administration
 
                 elseif ($route === 'adminPage'){
                     $this->backController->adminPage();
                 }
 
+                //autres pages (contact, en savoir plus)
 
+                elseif ($route === 'contactPage'){
+                    $this->frontController->contactPage();
+                }
+
+                elseif ($route === 'infosPage'){
+                    $this->frontController->infosPage();
+                }
 
 
 

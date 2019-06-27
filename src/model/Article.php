@@ -75,8 +75,7 @@ class Article
     public function getExtract()
     {
         $chain = $this->getContent();
-        return substr($chain, 0, 60) . "...";
-
+        return substr($chain, 0, 200) . "...";
     }
 
     /**

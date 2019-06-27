@@ -74,4 +74,17 @@ class FrontController extends Controller
         header('Location: ../public/index.php?route=allUsers');
     }
 
+    //autres pages : contact, infos=en savoir plus
+
+    public function contactPage()
+    {
+        return $this->view->render('contact');
+    }
+
+    public function infosPage()
+    {
+        return $this->view->render('infos');
+    }
+
+
 }

@@ -12,5 +12,8 @@
         <input type="submit" value="Envoyer" id="submit" name="submit">
     </form>
     <a href="../public/index.php">Retour à l'accueil</a>
+    <?php if ($this->session->get('pseudo')=='admin'){ ?>
+        <p><a href="../public/index.php?route=adminPage">Retour page d'administration</a> </p>
+    <?php } ?>
 </div>
 

@@ -1,28 +1,200 @@
 /* ***************************************
                  SOMMAIRE
 **************************************** */
+/* base */
 /* background */
 /* header nav */
 
 
+/* ************************************** */
 
-/* background */
+/* base ************************************************************************************************/
+img{
+    width: 100%;
+}
+
+
+
+/* background ******************************************************************************************/
 body{
-    /*background-image: url('../img/snow-titre.jpg') !important;*/
+    background-image: url('../img/snow-titre.jpg') !important;
     background: fixed;
     background-size: cover;
     position: relative;
+
     /*empecher défilement overflow-y: hidden; */
 }
 
 #content{
     background-color: #ffffff40;
-    width : 100%;
+    width : 85%;
+    margin: auto;
+
 }
 
 
-/* header nav */
+/* header nav ******************************************************************************************/
 .bg-lighty {
     background-color: #ffffff52!important;
     border-bottom: 1px solid #fefefe80;
+    justify-content: flex-end;
+}
+
+#navbarNav{
+    justify-content: flex-end;
+}
+
+#logoJF{
+    width: 5%;
+}
+
+
+
+/* home ******************************************************************************************/
+
+
+    .zoneArticles{
+        background-color: rgba(255, 255, 255, 0.77);
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 500px;
+    }
+
+    .homeCard{
+        width: 20%;
+        margin: 15px;
+        padding: 5px;
+    }
+
+    .card-title a{
+        color: #c74171 !important;
+    }
+
+/* single ******************************************************************************************/
+
+    .zoneArticle{
+        background-color: rgba(255, 255, 255, 0.85);
+        padding: 5%;
+    }
+
+    #zoneComments{
+        background-color: rgba(255, 255, 255, 0.77);
+        padding: 5%;
+    }
+
+    .toolsAdminComments{
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .toolsAdmin {
+        margin-left: 2%;
+    }
+
+    .toolAddComment {
+        margin-bottom: 10%;
+    }
+
+/* adminPage *****************************************************************************************/
+.toolsAdminPage{
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(255, 255, 255, 0.99);
+}
+
+.square{
+    border: 2px #fff1ef solid;
+    padding: 2%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    background-color: rgba(255, 255, 255, 0.99);
+}
+
+.zoneArticlesAdmin{
+    background-color: rgba(255, 255, 255, 0.77);
+    display: flex;
+    flex-wrap: wrap;
+    /*margin-top: 500px;*/
+}
+
+/* infosPage *****************************************************************************************/
+
+    .backcolorPage{
+
+        background-color: rgba(255, 255, 255, 0.89);
+    }
+
+    .infosPage{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .infosContent{
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+
+    .photoJF{
+        padding: 5%;
+        flex: 1;
+    }
+
+    .infosText{
+        padding: 5%;
+        text-align: justify;
+        flex: 1;
+    }
+
+    .infosCitation{
+        font-style: italic;
+    }
+
+    .social{
+        display: flex;
+        justify-content: center;
+    }
+
+    .socialico{
+        margin: 5%;
+    }
+
+    .socialText{
+        text-align: center;
+    }
+
+
+/* contact *****************************************************************************/
+
+.contactContent{
+    display: flex;
+
+}
+
+.carte{
+    flex: 1;
+    padding: 5%;
+}
+
+.contactInfos{
+    flex: 1;
+    text-align: justify;
+    padding: 5%;
+}
+
+
+
+.zoneWriting{
+    padding: 5%;
+}
+
+
+
+/* footer *****************************************************************************/
+
+.footer{
+    margin: 2%;
+    color: #c74171;
+    text-align: center;
 }
