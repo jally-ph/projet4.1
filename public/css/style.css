@@ -1,9 +1,17 @@
 /* ***************************************
                  SOMMAIRE
 **************************************** */
-/* base */
-/* background */
-/* header nav */
+/*
+        base
+        background
+        header nav
+        home
+        single
+        adminPage
+        infosPage
+        contact
+        footer
+*/
 
 
 /* ************************************** */
@@ -13,6 +21,14 @@ img{
     width: 100%;
 }
 
+.zoneWriting{
+    padding: 5%;
+}
+
+.backcolorPage{
+
+    background-color: rgba(255, 255, 255, 0.89);
+}
 
 
 /* background ******************************************************************************************/
@@ -58,6 +74,7 @@ body{
         display: flex;
         flex-wrap: wrap;
         margin-top: 500px;
+        justify-content: center;
     }
 
     .homeCard{
@@ -96,33 +113,30 @@ body{
     }
 
 /* adminPage *****************************************************************************************/
-.toolsAdminPage{
-    display: flex;
-    justify-content: space-around;
-    background-color: rgba(255, 255, 255, 0.99);
-}
 
-.square{
-    border: 2px #fff1ef solid;
-    padding: 2%;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    background-color: rgba(255, 255, 255, 0.99);
-}
+    .toolsAdminPage{
+        display: flex;
+        justify-content: space-around;
+        background-color: rgba(255, 255, 255, 0.99);
+    }
 
-.zoneArticlesAdmin{
-    background-color: rgba(255, 255, 255, 0.77);
-    display: flex;
-    flex-wrap: wrap;
-    /*margin-top: 500px;*/
-}
+    .square{
+        /*border: 2px #868686 solid;*/
+        padding: 2%;
+        margin-top: 2%;
+        margin-bottom: 2%;
+        /*background-color: rgba(255, 255, 255, 0.99);*/
+    }
+
+    .zoneArticlesAdmin{
+        background-color: rgba(255, 255, 255, 0.77);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        /*margin-top: 500px;*/
+    }
 
 /* infosPage *****************************************************************************************/
-
-    .backcolorPage{
-
-        background-color: rgba(255, 255, 255, 0.89);
-    }
 
     .infosPage{
         text-align: center;
@@ -134,6 +148,7 @@ body{
         display: flex;
         justify-content: center;
         align-content: center;
+
     }
 
     .photoJF{
@@ -169,7 +184,7 @@ body{
 
 .contactContent{
     display: flex;
-
+    flex-wrap: wrap;
 }
 
 .carte{
@@ -180,12 +195,6 @@ body{
 .contactInfos{
     flex: 1;
     text-align: justify;
-    padding: 5%;
-}
-
-
-
-.zoneWriting{
     padding: 5%;
 }
 

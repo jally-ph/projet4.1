@@ -25,8 +25,8 @@ foreach ($articles as $article)
             <p class="card-text"><?= strip_tags($article->getExtract());?></p>
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">par <?= htmlspecialchars($article->getAuthor());?></li>
-            <li class="list-group-item">Créé le : <?= htmlspecialchars($article->getCreatedAt());?></li>
+            <!--<li class="list-group-item">par <?= htmlspecialchars($article->getAuthor());?></li>-->
+            <li class="list-group-item">Publié le : <?= htmlspecialchars($article->getCreatedAt());?></li>
         </ul>
 
     </div>

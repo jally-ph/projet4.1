@@ -1,24 +1,38 @@
-<h1>Tableau de bord</h1>
 
-<div class="sessionMsg">
+<div class="backcolorPage">
+    <h1>Tableau de bord</h1>
 
-    <?= $this->session->show('add_article'); ?>
-    <?= $this->session->show('delete_article'); ?>
-    <?= $this->session->show('delete_comments'); ?>
-    <?= $this->session->show('inscriptionNewUser'); ?>
-    <?= $this->session->show('connexionUser'); ?>
-    <?= $this->session->show('successfulConnexion'); ?>
-    <?= $this->session->show('incorrectPassword'); ?>
-    <?= $this->session->show('incorrectPassword2'); ?>
-    <?= $this->session->show('flag_comment'); ?>
-    <?= $this->session->show('suppUser'); ?>
+    <div class="sessionMsg">
+
+        <?= $this->session->show('add_article'); ?>
+        <?= $this->session->show('delete_article'); ?>
+        <?= $this->session->show('delete_comments'); ?>
+        <?= $this->session->show('inscriptionNewUser'); ?>
+        <?= $this->session->show('connexionUser'); ?>
+        <?= $this->session->show('successfulConnexion'); ?>
+        <?= $this->session->show('incorrectPassword'); ?>
+        <?= $this->session->show('incorrectPassword2'); ?>
+        <?= $this->session->show('flag_comment'); ?>
+        <?= $this->session->show('suppUser'); ?>
+    </div>
+
+    <div class="toolsAdminPage">
+
+        <a class="square" href="../public/index.php?route=addArticle">
+            <button type="button" class="btn btn-dark"><i class="fas fa-edit fa-lg"></i> Nouvel Article </button>
+        </a>
+        <a class="square" href="../public/index.php?route=flagComments">
+            <button type="button" class="btn btn-dark"><i class="fas fa-exclamation-triangle fa-lg"></i> Commentaires signalés </button>
+        </a>
+        <a class="square" href="../public/index.php?route=allUsers">
+            <button type="button" class="btn btn-dark"><i class="fas fa-user fa-lg"></i> Liste des utilisateurs </button>
+        </a>
+    </div>
+
 </div>
 
-<div class="toolsAdminPage">
-    <p class="square"><a href="../public/index.php?route=addArticle"><i class="fas fa-edit fa-lg"></i> Nouvel Article </a></p>
-    <p class="square"><a href="../public/index.php?route=flagComments"><i class="fas fa-exclamation-triangle fa-lg"></i> Commentaires signalés </a></p>
-    <p class="square"><a href="../public/index.php?route=allUsers"><i class="fas fa-user fa-lg"></i> Liste des utilisateurs </a></p>
-</div>
+
+
 
 
 <div class="zoneArticlesAdmin">

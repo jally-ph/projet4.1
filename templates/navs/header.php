@@ -50,6 +50,7 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="../public/index.php?route=inscriptionUser">S'inscrire</a>
                     <a class="dropdown-item" href="../public/index.php?route=connexionUser">Se connecter</a>
+
                     <a class="dropdown-item" href="../public/index.php?route=removeUser&userId=<?= $this->session->get('id');?>">Supprimer mon compte</a>
                     <a class="dropdown-item" href="../public/index.php?route=Deconnexion">Déconnexion</a>
                 </div>

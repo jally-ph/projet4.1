@@ -5,6 +5,13 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="../public/css/mediaqueries.css">
+
+    <!-- TITLE -->
+    <title>Le Blog de Jean Forteroche</title>
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/gif" href="../public/img/logoJF.png" />
 
     <!-- FONTAWESOME -->
     <script src="https://kit.fontawesome.com/7e70710549.js"></script>
