@@ -207,3 +207,8 @@ body{
     color: #c74171;
     text-align: center;
 }
+
+/*tiny mce*/
+.tox-notifications-container {
+    display: none;
+}
