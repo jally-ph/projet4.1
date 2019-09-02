@@ -2,7 +2,7 @@
 
 namespace App\src\model;
 
-class Article
+class Article extends SetGet
 {
     /**
      * @var int
@@ -32,21 +32,9 @@ class Article
      */
     private $createdAt;
 
-    /**
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
+    
 
-    /**
-     * @param int $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
+
 
     /**
      * @return string
@@ -64,13 +52,6 @@ class Article
         $this->title = $title;
     }
 
-    /**
-     * @return string
-     */
-    public function getContent()
-    {
-        return $this->content;
-    }
 
     public function getExtract()
     {
@@ -78,13 +59,6 @@ class Article
         return substr($chain, 0, 200) . "...";
     }
 
-    /**
-     * @param string $content
-     */
-    public function setContent($content)
-    {
-        $this->content = $content;
-    }
 
     /**
      * @return string
@@ -102,19 +76,5 @@ class Article
         $this->author = $author;
     }
 
-    /**
-     * @return \DateTime
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @param \DateTime $createdAt
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-    }
+   
 }
