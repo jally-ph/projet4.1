@@ -1,6 +1,6 @@
 
 
-<div class="backcolorPage zoneWriting">
+<section class="backcolorPage zoneWriting">
     <p><a href="../public/index.php?route=adminPage" title="retour au tableau de bord">
             <i class="fas fa-arrow-circle-left fa-2x"></i>
         </a>
@@ -23,7 +23,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Voulez-vous vraiment supprimer l'utilisateur ?</h5>
+                        <h5 class="modal-title" id="exampleModalLabel<?=$comment->getId() ?>">Voulez-vous vraiment supprimer l'utilisateur ?</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -44,7 +44,7 @@
 
     <?php } ?>
 
-</div>
+</section>
 
 
 

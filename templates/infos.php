@@ -2,12 +2,12 @@
 ?>
 
 
-<div class="backcolorPage infosPage">
-    <div>
+<section class="backcolorPage infosPage">
+    
         <br>
         <h1>Jean Forteroche</h1>
 
-    </div>
+    
 
     <div class="infosContent">
         <div class="photoJF">
@@ -43,4 +43,4 @@
         </div>
     </div>
 
-</div>
+</section>

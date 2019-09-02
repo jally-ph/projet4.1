@@ -1,31 +1,39 @@
 <?php $this->title = "Article"; ?>
 
+<section class="zoneArticle">
+    <?= $this->session->show('modify_article'); ?>
+    <h6>par <?= htmlspecialchars($article->getAuthor());?> <br>
+    Créé le : <?= htmlspecialchars($article->getCreatedAt());?></h6>
 
-<?= $this->session->show('modify_article'); ?>
+    <hr>
 
-<div class="zoneArticle">
-    <h2><?= htmlspecialchars($article->getTitle());?></h2>
-    <p>par <?= htmlspecialchars($article->getAuthor());?></p>
-    <p>Créé le : <?= htmlspecialchars($article->getCreatedAt());?></p>
-    <p><?= $article->getContent();?></p>
+    <br>
+    
+    <article >
+
+        <h2><?= htmlspecialchars($article->getTitle());?></h2>
+        
+        
+        <p><?= $article->getContent();?></p>
 
 
-    <div class="toolsAdminComments">
-        <?php if ($this->session->get('pseudo')=='admin'){ ?>
-            <p class="toolsAdmin"><a href="../public/index.php?route=modifyArticle&articleId=<?= htmlspecialchars($article->getId());?>">
-                    <i class="fas fa-pencil-alt"></i> Modifier l'article </a></p>
+        <div class="toolsAdminComments">
+            <?php if ($this->session->get('pseudo')=='admin'){ ?>
+                <p class="toolsAdmin"><a href="../public/index.php?route=modifyArticle&articleId=<?= htmlspecialchars($article->getId());?>">
+                        <i class="fas fa-pencil-alt"></i> Modifier l'article </a></p>
 
-            <p class="toolsAdmin"><a href="../public/index.php?route=adminPage">Retour page d'administration</a> </p>
-            <p class="toolsAdmin"><a href="../public/index.php">Retour à l'accueil</a></p>
-        <?php } ?>
+                <p class="toolsAdmin"><a href="../public/index.php?route=adminPage">Retour page d'administration</a> </p>
+                <p class="toolsAdmin"><a href="../public/index.php">Retour à l'accueil</a></p>
+            <?php } ?>
 
-    </div>
-</div>
+        </div>
+    </article>
+</section>
 
 <hr>
 
 
-<div id="zoneComments" >
+<section id="zoneComments" >
 
     <h3>Commentaires</h3>
     <p class="toolAddComment">
@@ -41,9 +49,10 @@
         <!--div pr mettre les com-->
         <div>
             <h4><?= htmlspecialchars($comment->getPseudo()); ?></h4>
+            <p class="grey">Posté le <?= htmlspecialchars($comment->getCreatedAt()); ?></p>
             <p><?= $comment->getContent(); ?></p>
-            <p>Posté le <?= htmlspecialchars($comment->getCreatedAt()); ?></p>
-
+            
+        
 
 
 
@@ -82,8 +91,9 @@
                 </div>
             </div>
 
-            <!--modifier comments-->
+        </div>
 
+            <!--modifier comments-->
 
             <p class="toolsAdmin">
                 <a href="../public/index.php?route=modifyComment&commentId=<?=htmlspecialchars($comment->getId());?>">
@@ -109,17 +119,16 @@
             </p>
 
             <?php
-        }?>
+        }
+            ?>
 
         </div>
 
         <hr>
-
-    <?php
-
-    }
+        <?php
+            }
         ?>
-    </div>
+    
     <br>
 
-</div>
+</section>

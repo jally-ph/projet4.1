@@ -1,10 +1,10 @@
 <?php $this->title = "Nouveau commentaire"; ?>
 
-<div class="backcolorPage zoneWriting">
+<section class="backcolorPage zoneWriting">
 
     <a href="../public/index.php?route=adminPage" title="retour au tableau de bord"><i class="fas fa-arrow-circle-left fa-2x"></i></a>
     <br><br>
-    <h1>Nouveau commentaire</h1>
+    <h2>Nouveau commentaire</h2>
 
     <div>
         <form method="post" action="../public/index.php?route=addComment&articleId=<?= $article->getId();?>">
@@ -19,7 +19,7 @@
 
     </div>
 
-</div>
+</section>
 
 
 

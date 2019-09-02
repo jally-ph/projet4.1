@@ -11,6 +11,7 @@ class Parameter
         $this->parameter = $parameter;
     }
 
+
     public function get($name)
     {
         if(isset($this->parameter[$name]))
@@ -19,9 +20,11 @@ class Parameter
         }
     }
 
+
     public function set($name, $value)
     {
         $this->parameter[$name] = $value;
     }
 
 }
+

@@ -1,6 +1,6 @@
 
 
-<div class="backcolorPage zoneWriting">
+<section class="backcolorPage zoneWriting">
     <a href="../public/index.php" title="retour à l'accueil"><i class="fas fa-arrow-circle-left fa-2x"></i></a><br><br>
 
     <?= $this->session->show('verifyPseudo'); ?>
@@ -32,6 +32,6 @@
     </form>
 
 
-</div>
+</section>
 
 

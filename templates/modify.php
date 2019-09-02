@@ -1,10 +1,10 @@
 <?php $this->title = "Modifications articles"; ?>
 
-<div class="backcolorPage zoneWriting">
+<section class="backcolorPage zoneWriting">
 
     <a href="../public/index.php?route=adminPage" title="retour au tableau de bord"><i class="fas fa-arrow-circle-left fa-2x"></i></a>
     <br><br>
-    <h1>Modifier mon article</h1>
+    <h2>Modifier mon article</h2>
 
     <div>
         <form method="POST" action="../public/index.php?route=modifyArticle&articleId=<?= $article->getId();?>">
@@ -22,5 +22,5 @@
     </div>
 
 
-</div>
+</section>
 

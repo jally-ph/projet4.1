@@ -3,11 +3,11 @@
 
 
 
-<div class="backcolorPage zoneWriting">
+<section class="backcolorPage zoneWriting">
 
     <a href="../public/index.php?route=adminPage" title="retour au tableau de bord"><i class="fas fa-arrow-circle-left fa-2x"></i></a>
     <br><br>
-    <h1>Modifier mon commentaire</h1>
+    <h2>Modifier mon commentaire</h2>
 
     <div>
         <form method="POST" action="../public/index.php?route=modifyComment&commentId=<?= $comment->getId();?>">
@@ -22,5 +22,5 @@
     </div>
 
 
-</div>
+</section>
 

@@ -1,7 +1,10 @@
-<div class="backcolorPage zoneWriting">
+<section class="backcolorPage zoneWriting">
 
     <a href="../public/index.php" title="retour à l'accueil"><i class="fas fa-arrow-circle-left fa-2x"></i></a><br><br>
 
+
+    <h2>Connectez-vous cher admin</h2>
+    <br>
 
     <form method="post" action="../public/index.php?route=connexionUser">
         <div class="form-group row">
@@ -29,7 +32,7 @@
         </div>
     </form>
 
-</div>
+</section>
 
 
 

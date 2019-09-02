@@ -1,14 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
 <head>
+    <meta charset="UTF-8" />
+
     <!--INTERFACE TINYMCE -->
     <script src="https://cloud.tinymce.com/5/tinymce.min.js"></script>
-    <script>tinymce.init({ selector:'textarea' });</script>
+    <script>tinymce.init({ selector:'textarea', 
+    forced_root_block: "",
+    force_br_newlines: true,
+    force_p_newlines: false, });</script>
+
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
     <!-- CSS -->
     <link rel="stylesheet" href="../public/css/style.css">
     <link rel="stylesheet" href="../public/css/mediaqueries.css">
 
+    <!-- VIEWPORT -->
+    <meta name="viewport" content="initial-scale=1">
+
     <!-- TITLE -->
-    <title>Le Blog de Jean Forteroche</title>
+    <title>Jean Forteroche. <?= $title ?></title>
 
     <!-- FAVICON -->
     <link rel="icon" type="image/gif" href="../public/img/logoJF.png" />
@@ -16,15 +29,6 @@
     <!-- FONTAWESOME -->
     <script src="https://kit.fontawesome.com/7e70710549.js"></script>
 
-    <!-- BOOTSTRAP -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-    <!-- SWEET ALERT2 -->
-    <script src="sweetalert2.min.js"></script>
-    <link rel="stylesheet" href="sweetalert2.min.css">
+    
 
 </head>

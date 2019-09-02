@@ -1,7 +1,7 @@
 <?php $this->title = "Commentaires signalés";
 ?>
 
-<div class="backcolorPage zoneWriting">
+<section class="backcolorPage zoneWriting">
 
     <p><a href="../public/index.php?route=adminPage" title="retour au tableau de bord">
             <i class="fas fa-arrow-circle-left fa-2x"></i>
@@ -9,7 +9,7 @@
     </p>
 
 
-    <h1>Commentaires signalés</h1>
+    <h2>Commentaires signalés</h2>
     <br>
 
     <p><?= $this->session->show('deflag'); ?></p>
@@ -40,9 +40,12 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                        <a href="../public/index.php?route=deflag&commentId=<?= htmlspecialchars($comment->getId());?>">
-                            <button type="button" class="btn btn-primary">Retirer le signalement</button>
+                        
+                        <a href="../public/index.php?route=deflag&commentId=<?= htmlspecialchars($comment->getId());?>" class="btn btn-primary">
+                            Retirer le signalement
+                            
                         </a>
+                        
                     </div>
                 </div>
             </div>
@@ -53,7 +56,7 @@
     <?php } ?>
 
 
-</div>
+</section>
 
 
 
