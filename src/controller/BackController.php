@@ -7,22 +7,29 @@ use App\config\Parameter;
 
 class BackController extends Controller
 {
+    //
     private function checkAdmin()
     {
-        if($this->session->get('pseudo')!='admin'){
+        if($this->session->get('pseudo')=='admin') {
+           return true;
+        }
+
+        else {
             header('Location:../public/index.php?route=connexionUser');
         }
 
     }
 
+    //
     public function addArticle(Parameter $post)
     {
-        if(!$this->checkAdmin()){
+        if($this->checkAdmin()){
             if($post->get('submit')) {
                 $this->articleDAO->addArticle($post);
                 $this->session->set('add_article', 'Le nouvel article a bien été ajouté');
                 header('Location: ../public/index.php');
             }
+            
             return $this->view->render('add_article', [
                 'post' => $post
             ]);
@@ -32,12 +39,12 @@ class BackController extends Controller
 
     public function deleteArticle($articleId)
     {
-        if(!$this->checkAdmin()){
+        if($this->checkAdmin()){
 
             $this->commentDAO->deleteComments($articleId);
             $this->articleDAO->deleteArticle($articleId);
             $this->session->set('delete_article', 'L\'article a bien été supprimé');
-            header('Location: ../public/index.php');
+            header('Location: ../public/index.php?route=adminPage');
         }
 
 
@@ -46,7 +53,7 @@ class BackController extends Controller
 
     public function modifyArticle(Parameter $post, $id)
     {
-        if(!$this->checkAdmin()){
+        if($this->checkAdmin()){
             $article = $this->articleDAO->getArticle($id);
 
             //var_dump($post);
@@ -107,7 +114,7 @@ class BackController extends Controller
 
     public function modifyComment(Parameter $post, $id)
     {
-        if(!$this->checkAdmin()){
+        if($this->checkAdmin()){
             //récupérer le commentaire
             $comment = $this->commentDAO->getComment($id);
 
@@ -241,7 +248,7 @@ class BackController extends Controller
 
     public function adminPage()
     {
-        if(!$this->checkAdmin()){
+        if($this->checkAdmin()){
 
             //$comment = $this->commentDAO->getComment($id);
 
