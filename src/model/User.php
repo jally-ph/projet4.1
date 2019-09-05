@@ -3,28 +3,16 @@
 
 namespace App\src\model;
 
+use App\src\model\Pseudo;
 
-class User extends SetGet
+
+class User extends Model
 {
-    /**
-     * @var int
-     */
-    private $id;
-
-    /**
-     * @var string
-     */
-    private $pseudo;
 
     /**
      * @var string
      */
     private $password;
-
-    /**
-     * @var \DateTime
-     */
-    private $createdAt;
 
 
 

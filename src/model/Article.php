@@ -2,24 +2,22 @@
 
 namespace App\src\model;
 
-class Article extends SetGet
-{
-    /**
-     * @var int
-     */
-    private $id;
+use App\src\model\Content;
 
+
+
+class Article extends Model {
+   
     /**
      * @var string
      */
     private $title;
 
-    /**
-     * @var string
-     */
-    private $content;
 
-    public $chain;
+    /**
+    * @var string
+    */
+    private $chain;
 
 
     /**
@@ -27,12 +25,6 @@ class Article extends SetGet
      */
     private $author;
 
-    /**
-     * @var \DateTime
-     */
-    private $createdAt;
-
-    
 
 
 

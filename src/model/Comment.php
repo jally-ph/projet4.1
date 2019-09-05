@@ -2,33 +2,16 @@
 
 namespace App\src\model;
 
-class Comment extends SetGet
+use App\src\model\Content;
+use App\src\model\Pseudo;
+
+class Comment extends Model
 {
-    /**
-     * @var int
-     */
-    private $id;
-
-    /**
-     * @var string
-     */
-    private $pseudo;
-
-    /**
-     * @var string
-     */
-    private $content;
 
     /**
      * @var bool
      */
     private $flag;
-
-
-    /**
-     * @var \DateTime
-     */
-    private $createdAt;
 
 
  
@@ -49,4 +32,4 @@ class Comment extends SetGet
         $this->flag = $flag;
     }
 
- }
+}
