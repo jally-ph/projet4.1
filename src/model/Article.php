@@ -2,9 +2,6 @@
 
 namespace App\src\model;
 
-use App\src\model\Content;
-
-
 
 class Article extends Model {
    
@@ -24,6 +21,9 @@ class Article extends Model {
      * @var string
      */
     private $author;
+    
+
+    private $content;
 
 
 
@@ -67,6 +67,24 @@ class Article extends Model {
     {
         $this->author = $author;
     }
+
+
+         /**
+     * @return string
+     */
+    public function getContent()
+    {
+        return $this->content;
+    }
+
+    /**
+     * @param string $content
+     */
+    public function setContent($content)
+    {
+        $this->content = $content;
+    }
+
 
    
 }

@@ -1,9 +1,5 @@
 <?php
-
-
 namespace App\src\model;
-
-use App\src\model\Pseudo;
 
 
 class User extends Model
@@ -13,6 +9,8 @@ class User extends Model
      * @var string
      */
     private $password;
+
+    private $pseudo;
 
 
 
@@ -31,6 +29,23 @@ class User extends Model
     {
         $this->password = $password;
     }
+
+         /**
+     * @return string
+     */
+    public function getPseudo()
+    {
+        return $this->pseudo;
+    }
+
+    /**
+     * @param string $pseudo
+     */
+    public function setPseudo($pseudo)
+    {
+        $this->pseudo = $pseudo;
+    }
+
 
   
 }

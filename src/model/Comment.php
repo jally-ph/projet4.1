@@ -2,8 +2,6 @@
 
 namespace App\src\model;
 
-use App\src\model\Content;
-use App\src\model\Pseudo;
 
 class Comment extends Model
 {
@@ -12,6 +10,10 @@ class Comment extends Model
      * @var bool
      */
     private $flag;
+
+    private $pseudo;
+
+    private $content;
 
 
  
@@ -30,6 +32,39 @@ class Comment extends Model
     public function setFlag($flag)
     {
         $this->flag = $flag;
+    }
+
+     /**
+     * @return string
+     */
+    public function getPseudo()
+    {
+        return $this->pseudo;
+    }
+
+    /**
+     * @param string $pseudo
+     */
+    public function setPseudo($pseudo)
+    {
+        $this->pseudo = $pseudo;
+    }
+
+
+     /**
+     * @return string
+     */
+    public function getContent()
+    {
+        return $this->content;
+    }
+
+    /**
+     * @param string $content
+     */
+    public function setContent($content)
+    {
+        $this->content = $content;
     }
 
 }
